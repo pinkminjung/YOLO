@@ -1,0 +1,157 @@
+.trip_Info {
+	width: 100%;
+}
+
+.Info_calendar {
+	margin: 50px auto;
+	width: 50%;
+	font: 13px "Malgun Gothic";
+	background: #ddd;
+	padding: 5px;
+}
+
+/* a태크 */
+.cal_a{
+	width: 30%;
+	margin: 50px 0 -40px 25%;
+	font: bold 14px "Malgun Gothic";	
+}
+
+
+.cal_title {
+	position: relative;
+	text-align: center;
+	padding-top: 10px;
+	margin-bottom: 5px;
+	width: 100%;
+	height: 50px;
+	font: bold 18px "Malgun Gothic";
+	background: #457c7b;
+	border-radius: 5px;
+	color: #eee;
+}
+.p_img{
+	position: absolute;
+	right: 10px;
+	bottom: 14px;
+}
+
+
+
+/* 정보담는틀 */
+.t_info{
+	width: 100%;	
+	height: 50px;
+	padding: 5px;
+	border-radius: 5px;
+	border-bottom-style: inset;
+	background-color: white;
+}
+.trip_name{
+	float: left;
+	width: 30%;
+	padding: 10px;
+}
+.t_memo{
+	float: left;
+	width:45%;
+	height: 35px;
+	text-align: left;
+	padding: 10px;
+}
+
+.t_pay{
+	width: 25%;
+	padding: 10px;
+	float: left;
+	text-align: right;
+}
+
+/* 날짜표시 */
+
+.days {
+	position: relative;
+	clear: both;
+	height: 40px;
+	border-radius: 5px;
+	border-bottom-style: outset;
+	background: #eee;
+	color: #005e5e;
+}
+
+.day_day, .start_day{
+	padding: 10px;
+	position: absolute;
+	bottom: 1px;
+	font: bold 16px "Malgun Gothic";
+}
+
+.day_day{
+	left:0;
+}
+.start_day{
+	right: 0;
+}
+
+/* 총금액 */
+.foot{
+	clear: both;
+	width: 100%;
+	padding: 10px 15px 10px 0;
+	text-align: right;
+	border-radius: 5px;
+}
+
+
+/* 수정폼부분 */
+.cal_title .input_title, .days .input_start, .t_info .input_memo{
+	 height: auto;
+	 line-height: normal;
+	background-color:transparent;
+	border: infobackground;
+	}
+
+
+.cal_title .input_title{
+	width: 40%;
+    margin: -10px 0 ;
+    box-sizing: border-box;
+	text-align: center;
+	border-radius: 4px;
+	color: #eee;
+     font: bold 18px "Malgun Gothic";
+}
+
+.days .input_start{
+	width: 29%;
+    right: 0;
+    text-align: right;
+    top: -6px;
+    position: absolute;
+    box-sizing: border-box;
+	border-radius: 4px;
+    font: bold 16px "Malgun Gothic";
+}
+.t_info .input_memo{
+	width: 100%;
+	margin: -20px 0 -20px 0;
+	box-sizing: border-box;
+	border-radius: 4px;
+    color: bold black;
+    font: bold 13px "Malgun Gothic";
+}
+.sub_update{
+	width: 100%;
+	clear: both;
+	text-align: center;
+}
+.sub_update button {
+	width: 100px;
+	height: 50px;
+	border-radius: 4px; 
+	margin: 5px;
+	background-color: #2e5251;
+	color: #eee;
+	 font: bold 16px "Malgun Gothic";
+	text-align: center;
+}

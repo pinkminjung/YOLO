@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+     
+<mapper namespace="com.kosta.yolo.dao.UserMapper">
+
+	<resultMap type="com.kosta.yolo.vo.UserVO" id="MemberResultMap" >
+		<result property="user_id" column="user_id"/>
+		<result property="password" column="password"/>
+		<result property="email" column="email"/>
+		<result property="gender" column="gender"/>
+		<result property="isadmin" column="isadmin"/>
+		<result property="age" column="age"/>
+	</resultMap>
+	
+	<insert id="getWrite" parameterType="com.kosta.yolo.vo.UserVO">
+		insert into User(user_id, name, password, email, gender,age,isadmin) values(#{user_id} , #{name}, #{password} , #{email}, #{gender}, #{age}, #{isadmin})
+	</insert>
+	
+	<select id="login" resultMap="MemberResultMap" parameterType="java.lang.String">
+		select user_id, password, isadmin  from User where user_id=#{user_id}
+	</select>
+		
+	<select id="selectAll" resultType="com.kosta.yolo.vo.UserVO">
+    		SELECT * FROM User  where isadmin NOT IN ('1')
+    </select>
+	
+	
+	<update id="userUpdate" parameterType="com.kosta.yolo.vo.UserVO">
+    	UPDATE User SET password=#{password},name=#{name}, email=#{email}, gender=#{gender}, age=#{age} WHERE user_id = #{user_id }
+    </update>
+    	
+    <delete id="userDelete" parameterType="com.kosta.yolo.vo.UserVO">
+    	DELETE FROM User WHERE user_id=#{user_id} AND password=#{password}
+    </delete>
+    
+    <delete id="adminUserDelete" parameterType="com.kosta.yolo.vo.UserVO">
+    	DELETE FROM User WHERE user_id=#{user_id}
+    </delete>
+    
+    <select id="userSelect" resultType="com.kosta.yolo.vo.UserVO">
+    		SELECT * FROM User WHERE user_id = #{user_id}
+    </select>
+    
+    <select id="userIdFind" resultType="com.kosta.yolo.vo.UserVO">
+    		SELECT * FROM User WHERE name = #{name} AND email=#{email}
+    </select>
+    
+    <select id="userPwdFind" resultType="com.kosta.yolo.vo.UserVO">
+    		SELECT * FROM User WHERE user_id = #{user_id} AND email=#{email}
+    </select>
+</mapper>

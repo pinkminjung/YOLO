@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    <mapper namespace="com.kosta.yolo.dao.AdminMapper">
+    	<select id="selectAll" resultType="com.kosta.yolo.vo.TripInfoVO">
+    		SELECT * FROM TripInfo order by trip_id
+    	</select>
+
+    	<insert id="infoInsert"  parameterType="com.kosta.yolo.vo.TripInfoVO">
+    		INSERT INTO TripInfo
+    		 (trip_id, category_id, age_id, food_id, season_id, person_id, kpop_id, trip_nickname, trip_address, trip_add1, trip_add2, trip_add3, trip_content, trip_time, trip_site, trip_tel, trip_way, trip_pay, pos_x, pos_y) VALUES( #{trip_id }, #{category_id}, #{age_id}, #{food_id}, #{season_id}, #{person_id}, #{kpop_id}, #{trip_nickname}, #{trip_address}, #{trip_add1}, #{trip_add2}, #{trip_add3}, #{trip_content}, #{trip_time}, #{trip_site}, #{trip_tel}, #{trip_way}, #{trip_pay}, #{pos_x}, #{pos_y} )
+    	</insert>
+    	
+    	<select id="selectInfo"  parameterType="java.lang.String"  resultType="com.kosta.yolo.vo.TripInfoVO">
+    		SELECT * FROM TripInfo WHERE trip_id = #{trip_id}
+    	</select>
+    	
+    	<select id="selectTrip"  parameterType="java.lang.String"  resultType="com.kosta.yolo.vo.TripInfoVO">
+    		SELECT * FROM TripInfo WHERE trip_id = #{trip_id}
+   		</select>
+    	
+    	<delete id="deleteTrip"  parameterType="java.lang.String">
+    		DELETE FROM TripInfo WHERE trip_id = #{trip_id }
+    	</delete>
+    	
+    	<update id="updateTrip" parameterType="com.kosta.yolo.vo.TripInfoVO">
+        	UPDATE TripInfo set category_id = #{category_id}, age_id = #{age_id}, food_id = #{food_id}, season_id = #{season_id}, person_id = #{person_id}, kpop_id = #{kpop_id}, trip_nickname = #{trip_nickname}, trip_address = #{trip_address}, trip_add1 = #{trip_add1}, trip_add2 = #{trip_add2}, trip_add3 = #{trip_add3}, trip_content = #{trip_content}, trip_time = #{trip_time}, trip_site = #{trip_site}, trip_tel = #{trip_tel}, trip_way = #{trip_way}, trip_pay = #{trip_pay}, pos_x = #{pos_x}, pos_y = #{pos_y} 
+        		WHERE trip_id = #{trip_id}
+   		</update>
+   		
+   		<!-- 전체 리뷰 보기(최근순) -->
+   		<select id="reviewList" resultType="com.kosta.yolo.vo.UserReviewVO">
+    		SELECT * FROM UserReview ORDER BY review_time DESC
+    	</select>
+    	
+    	<!-- 리뷰 삭제 -->
+    	<delete id="reviewDelete" parameterType="java.lang.Integer">
+			Delete from UserReview where review_no = #{review_no}
+		</delete>
+    	
+    </mapper>
